@@ -2,4 +2,4 @@ name = "first-person-death"
 main = "init.lua"
 autorun = true
 server = false
-version = 1
+version = 000100

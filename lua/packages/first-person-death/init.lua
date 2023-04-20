@@ -9,14 +9,14 @@ hook.Add( "CalcView", packageName, function( ply, pos, ang )
     local ragdoll = PLAYER.GetRagdollEntity( ply )
     if not IsValid( ragdoll ) then return end
 
-    if not PLAYER.Alive( ply ) and PLAYER.GetObserverTarget( ply ) ~= ply then
+    if not PLAYER.Alive( ply ) and PLAYER.GetObserverTarget( ply ) ~= ply and PLAYER.GetViewEntity( ply ) == ply then
         local eyes = ENTITY.GetAttachmentByName( ragdoll, "eyes" )
         if eyes then
-            if not ragdoll.__headHidden then
+            if not ragdoll.__hiddenHead then
                 local index = ENTITY.FindBone( ragdoll, "^[%w%._]+Head%d*$" )
                 if index then
                     ENTITY.ManipulateBoneScale( ragdoll, index, vectorZero )
-                    ragdoll.__headHidden = true
+                    ragdoll.__hiddenHead = index
                 end
             end
 
@@ -27,11 +27,9 @@ hook.Add( "CalcView", packageName, function( ply, pos, ang )
         end
     end
 
-    if ragdoll.__headHidden then return end
-
-    local index = ENTITY.FindBone( ragdoll, "^[%w%._]+Head%d*$" )
+    local index = ragdoll.__hiddenHead
     if not index then return end
 
     ENTITY.ManipulateBoneScale( ragdoll, index, vectorOne )
-    ragdoll.__headHidden = false
+    ragdoll.__hiddenHead = nil
 end )
