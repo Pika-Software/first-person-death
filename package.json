@@ -1,0 +1,7 @@
+{
+    "name": "first-person-death",
+    "files": {
+        "lua/packages/first-person-death/package.lua": "https://raw.githubusercontent.com/Pika-Software/first-person-death/main/lua/packages/first-person-death/package.lua",
+        "lua/packages/first-person-death/init.lua": "https://raw.githubusercontent.com/Pika-Software/first-person-death/main/lua/packages/first-person-death/init.lua"
+    }
+}
