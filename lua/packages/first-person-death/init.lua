@@ -1,4 +1,4 @@
-import( gpm.LuaPackageExists( "packages/glua-extensions" ) and "packages/glua-extensions" or "https://github.com/Pika-Software/glua-extensions" )
+import( gpm.PackageExists( "packages/glua-extensions" ) and "packages/glua-extensions" or "https://github.com/Pika-Software/glua-extensions" )
 
 local ENTITY, PLAYER = FindMetaTable( "Entity" ), FindMetaTable( "Player" )
 local vectorZero, vectorOne = Vector( 0, 0, 0 ), Vector( 1, 1, 1 )
