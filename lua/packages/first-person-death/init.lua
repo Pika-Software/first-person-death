@@ -5,7 +5,11 @@ local vectorZero, vectorOne = Vector( 0, 0, 0 ), Vector( 1, 1, 1 )
 local packageName = gpm.Package:GetIdentifier()
 local IsValid = IsValid
 
+local enabled = CreateClientConVar( "cl_first_person_death", "1", true, true, "Enables/disables attachment to a local player's corpse.", 0, 1 )
+
 hook.Add( "CalcView", packageName, function( ply, pos, ang )
+    if not enabled:GetBool() then return end
+
     local ragdoll = PLAYER.GetRagdollEntity( ply )
     if not IsValid( ragdoll ) then return end
 
