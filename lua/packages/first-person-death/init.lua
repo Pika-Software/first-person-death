@@ -13,6 +13,8 @@ hook.Add( "CalcView", packageName, function( ply, pos, ang )
         local eyes = ENTITY.GetAttachmentByName( ragdoll, "eyes" )
         if eyes then
             if not ragdoll.__hiddenHead then
+                ragdoll:SetupBones()
+
                 local index = ENTITY.FindBone( ragdoll, "^[%w%._]+Head%d*$" )
                 if index then
                     ENTITY.ManipulateBoneScale( ragdoll, index, vectorZero )
