@@ -1,4 +1,4 @@
-require( "packages/glua-extensions", "https://github.com/Pika-Software/glua-extensions" )
+install( "packages/glua-extensions", "https://github.com/Pika-Software/glua-extensions" )
 
 local ENTITY, PLAYER = FindMetaTable( "Entity" ), FindMetaTable( "Player" )
 local vectorZero, vectorOne = Vector( 0, 0, 0 ), Vector( 1, 1, 1 )
