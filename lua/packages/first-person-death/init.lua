@@ -2,12 +2,11 @@ install( "packages/glua-extensions", "https://github.com/Pika-Software/glua-exte
 
 local ENTITY, PLAYER = FindMetaTable( "Entity" ), FindMetaTable( "Player" )
 local vectorZero, vectorOne = Vector( 0, 0, 0 ), Vector( 1, 1, 1 )
-local packageName = gpm.Package:GetIdentifier()
 local IsValid = IsValid
 
 local enabled = CreateClientConVar( "cl_first_person_death", "1", true, true, "Enables/disables attachment to a local player's corpse.", 0, 1 )
 
-hook.Add( "CalcView", packageName, function( ply, pos, ang )
+hook.Add( "CalcView", "Camera", function( ply, pos, ang )
     if not enabled:GetBool() then return end
 
     local ragdoll = PLAYER.GetRagdollEntity( ply )
