@@ -1,5 +1,5 @@
 name = "first-person-death"
-version = 000201
+version = 000300
 autorun = true
 init = {
     ["client"] = "init.lua"
